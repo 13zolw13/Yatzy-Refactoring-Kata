@@ -17,15 +17,14 @@ export default class Yatzy {
 		return this.dice.every((d) => d === this.dice[0]) ? 50 : 0;
 	}
 
-	static ones(d1: number, d2: number, d3: number, d4: number, d5: number): number {
-		var sum = 0;
-		if (d1 == 1) sum++;
-		if (d2 == 1) sum++;
-		if (d3 == 1) sum++;
-		if (d4 == 1) sum++;
-		if (d5 == 1) sum++;
+	ones(): number {
+		const one = 1;
 
-		return sum;
+		return this.OnesTwosTreesFourthsFivesSixes(one);
+	}
+
+	private OnesTwosTreesFourthsFivesSixes(pickedDice: number) {
+		return this.dice.filter((d) => d === pickedDice).reduce((a, b) => a + b, 0);
 	}
 
 	static twos(d1: number, d2: number, d3: number, d4: number, d5: number): number {
