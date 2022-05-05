@@ -1,6 +1,6 @@
 export default class Yatzy {
 	dice: number[] = [];
-
+	private filterOptionsDice = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes'];
 	constructor(d1: number, d2: number, d3: number, d4: number, d5: number) {
 		this.dice[0] = d1;
 		this.dice[1] = d2;
@@ -17,54 +17,24 @@ export default class Yatzy {
 		return this.dice.every((d) => d === this.dice[0]) ? 50 : 0;
 	}
 
-	ones(): number {
-		const one = 1;
-
-		return this.OnesTwosTreesFourthsFivesSixes(one);
+	OnesTwosTreesFourthsFivesSixes(option: string): number {
+		return option === this.filterOptionsDice[0]
+			? this.SumOnesTwosTreesFourthsFivesSixes(1)
+			: option === this.filterOptionsDice[1]
+			? this.SumOnesTwosTreesFourthsFivesSixes(2)
+			: option === this.filterOptionsDice[2]
+			? this.SumOnesTwosTreesFourthsFivesSixes(3)
+			: option === this.filterOptionsDice[3]
+			? this.SumOnesTwosTreesFourthsFivesSixes(4)
+			: option === this.filterOptionsDice[4]
+			? this.SumOnesTwosTreesFourthsFivesSixes(5)
+			: this.SumOnesTwosTreesFourthsFivesSixes(6);
 	}
 
-	private OnesTwosTreesFourthsFivesSixes(pickedDice: number) {
+	private SumOnesTwosTreesFourthsFivesSixes(pickedDice: number) {
 		return this.dice.filter((d) => d === pickedDice).reduce((a, b) => a + b, 0);
 	}
 
-	twos(): number {
-		const two = 2;
-		return this.OnesTwosTreesFourthsFivesSixes(two);
-	}
-
-	static threes(d1: number, d2: number, d3: number, d4: number, d5: number): number {
-		var s;
-		s = 0;
-		if (d1 == 3) s += 3;
-		if (d2 == 3) s += 3;
-		if (d3 == 3) s += 3;
-		if (d4 == 3) s += 3;
-		if (d5 == 3) s += 3;
-		return s;
-	}
-	fours(): number {
-		var sum;
-		sum = 0;
-		for (let at = 0; at != 5; at++) {
-			if (this.dice[at] == 4) {
-				sum += 4;
-			}
-		}
-		return sum;
-	}
-
-	fives(): number {
-		let s = 0;
-		var i;
-		for (i = 0; i < this.dice.length; i++) if (this.dice[i] == 5) s = s + 5;
-		return s;
-	}
-
-	sixes(): number {
-		let sum = 0;
-		for (var at = 0; at < this.dice.length; at++) if (this.dice[at] == 6) sum = sum + 6;
-		return sum;
-	}
 	static score_pair(d1: number, d2: number, d3: number, d4: number, d5: number): number {
 		var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 		counts[d1 - 1]++;

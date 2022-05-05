@@ -16,56 +16,62 @@ describe('Yatzy', () => {
 });
 
 describe('Ones', () => {
-  it('score the sum of 1s', () => {
+	it('score the sum of 1s', () => {
 		const game = new Yatzy(1, 2, 2, 2, 2);
-		assert.strictEqual(1, game.ones());
+		assert.strictEqual(1, game.OnesTwosTreesFourthsFivesSixes('ones'));
 	});
 	it('score the sum of 1s', () => {
 		const game = new Yatzy(1, 1, 2, 2, 2);
-		assert.strictEqual(2, game.ones());
+		assert.strictEqual(2, game.OnesTwosTreesFourthsFivesSixes('ones'));
 	});
 });
 
 describe('Twos', () => {
 	it('score the sum of 2s', () => {
 		const game = new Yatzy(1, 2, 2, 2, 2);
-		assert.strictEqual(8, game.twos());
+		assert.strictEqual(8, game.OnesTwosTreesFourthsFivesSixes('twos'));
 	});
-	
-		it('score the sum of 2s', () => {
-			const game = new Yatzy(1, 1, 1, 1, 1);
-			assert.strictEqual(0, game.twos());
-		});
+
+	it('score the sum of 2s', () => {
+		const game = new Yatzy(1, 1, 1, 1, 1);
+		assert.strictEqual(0, game.OnesTwosTreesFourthsFivesSixes('twos'));
+	});
 });
 
 describe('Threes', () => {
 	it('score the sum of 3s', () => {
-		assert.strictEqual(6, Yatzy.threes(1, 2, 3, 2, 3));
-		assert.strictEqual(12, Yatzy.threes(2, 3, 3, 3, 3));
+		const game = new Yatzy(1, 2, 3, 4, 5);
+
+		assert.strictEqual(3, game.OnesTwosTreesFourthsFivesSixes('threes'));
+	});
+
+	it('score the sum of 3s', () => {
+		const game = new Yatzy(3, 3, 3, 4, 5);
+
+		assert.strictEqual(9, game.OnesTwosTreesFourthsFivesSixes('threes'));
 	});
 });
 
 describe('Fours', () => {
 	it('score the sum of 4s', () => {
-		assert.strictEqual(12, new Yatzy(4, 4, 4, 5, 5).fours());
-		assert.strictEqual(8, new Yatzy(4, 4, 5, 5, 5).fours());
-		assert.strictEqual(4, new Yatzy(4, 5, 5, 5, 5).fours());
+		const game = new Yatzy(4, 4, 4, 4, 5);
+		assert.strictEqual(16, game.OnesTwosTreesFourthsFivesSixes('fours'));
 	});
 });
 
 describe('Fives', () => {
 	it('score the sum of fives', () => {
-		assert.strictEqual(10, new Yatzy(4, 4, 4, 5, 5).fives());
-		assert.strictEqual(15, new Yatzy(4, 4, 5, 5, 5).fives());
-		assert.strictEqual(20, new Yatzy(4, 5, 5, 5, 5).fives());
+		const game = new Yatzy(5, 5, 5, 5, 5);
+		assert.strictEqual(25, game.OnesTwosTreesFourthsFivesSixes('fives'));
 	});
+	
 });
 
 describe('Sixes', () => {
 	it('score the sum of sixes', () => {
-		assert.strictEqual(0, new Yatzy(4, 4, 4, 5, 5).sixes());
-		assert.strictEqual(6, new Yatzy(4, 4, 6, 5, 5).sixes());
-		assert.strictEqual(18, new Yatzy(6, 5, 6, 6, 5).sixes());
+		const game = new Yatzy(6, 6, 6, 6, 6);
+		assert.strictEqual(30, game.OnesTwosTreesFourthsFivesSixes('sixes'));
+
 	});
 });
 
