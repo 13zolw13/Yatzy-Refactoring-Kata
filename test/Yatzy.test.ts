@@ -28,8 +28,8 @@ describe('Ones', () => {
 
 describe('Twos', () => {
 	it('score the sum of 2s', () => {
-		assert.strictEqual(4, Yatzy.twos(1, 2, 3, 2, 6));
-		assert.strictEqual(10, Yatzy.twos(2, 2, 2, 2, 2));
+		const game = new Yatzy(1, 2, 2, 2, 2);
+		assert.strictEqual(8, game.twos());
 	});
 });
 
