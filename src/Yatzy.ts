@@ -1,5 +1,5 @@
 export default class Yatzy {
-	dice: number[]=[];
+	dice: number[] = [];
 
 	constructor(d1: number, d2: number, d3: number, d4: number, d5: number) {
 		this.dice[0] = d1;
@@ -9,14 +9,8 @@ export default class Yatzy {
 		this.dice[4] = d5;
 	}
 
-	static chance(d1: number, d2: number, d3: number, d4: number, d5: number): number {
-		var total = 0;
-		total += d1;
-		total += d2;
-		total += d3;
-		total += d4;
-		total += d5;
-		return total;
+	chance(): number {
+		return this.dice.reduce((a, b) => a + b, 0);
 	}
 
 	static yatzy(...args: number[]): number {
