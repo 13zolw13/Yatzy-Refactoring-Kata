@@ -13,14 +13,8 @@ export default class Yatzy {
 		return this.dice.reduce((a, b) => a + b, 0);
 	}
 
-	static yatzy(...args: number[]): number {
-		var counts = [0, 0, 0, 0, 0, 0, 0, 0];
-		for (var i = 0; i != args.length; ++i) {
-			var die = args[i];
-			counts[die - 1]++;
-		}
-		for (i = 0; i != 6; i++) if (counts[i] == 5) return 50;
-		return 0;
+	yatzy(): number {
+		return this.dice.every((d) => d === this.dice[0]) ? 50 : 0;
 	}
 
 	static ones(d1: number, d2: number, d3: number, d4: number, d5: number): number {
