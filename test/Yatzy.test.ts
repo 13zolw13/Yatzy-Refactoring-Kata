@@ -16,11 +16,13 @@ describe('Yatzy', () => {
 });
 
 describe('Ones', () => {
+  it('score the sum of 1s', () => {
+		const game = new Yatzy(1, 2, 2, 2, 2);
+		assert.strictEqual(1, game.ones());
+	});
 	it('score the sum of 1s', () => {
-		assert.strictEqual(1, Yatzy.ones(1, 2, 3, 4, 5));
-		assert.strictEqual(2, Yatzy.ones(1, 2, 1, 4, 5));
-		assert.strictEqual(0, Yatzy.ones(6, 2, 2, 4, 5));
-		assert.strictEqual(4, Yatzy.ones(1, 2, 1, 1, 1));
+		const game = new Yatzy(1, 1, 2, 2, 2);
+		assert.strictEqual(2, game.ones());
 	});
 });
 
