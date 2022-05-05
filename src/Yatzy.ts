@@ -27,14 +27,9 @@ export default class Yatzy {
 		return this.dice.filter((d) => d === pickedDice).reduce((a, b) => a + b, 0);
 	}
 
-	static twos(d1: number, d2: number, d3: number, d4: number, d5: number): number {
-		var sum = 0;
-		if (d1 == 2) sum += 2;
-		if (d2 == 2) sum += 2;
-		if (d3 == 2) sum += 2;
-		if (d4 == 2) sum += 2;
-		if (d5 == 2) sum += 2;
-		return sum;
+	twos(): number {
+		const two = 2;
+		return this.OnesTwosTreesFourthsFivesSixes(two);
 	}
 
 	static threes(d1: number, d2: number, d3: number, d4: number, d5: number): number {
