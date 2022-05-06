@@ -35,16 +35,22 @@ export default class Yatzy {
 		return this.dice.filter((d) => d === pickedDice).reduce((a, b) => a + b, 0);
 	}
 
-	static score_pair(d1: number, d2: number, d3: number, d4: number, d5: number): number {
-		var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-		counts[d1 - 1]++;
-		counts[d2 - 1]++;
-		counts[d3 - 1]++;
-		counts[d4 - 1]++;
-		counts[d5 - 1]++;
-		var at;
-		for (at = 0; at != 6; at++) if (counts[6 - at - 1] >= 2) return (6 - at) * 2;
-		return 0;
+	score_pair(): number {
+		const counts: number[] = [0, 0, 0, 0, 0, 0];
+		for (let i = 0; i < 5; i++) {
+			counts[this.dice[i] - 1]++;
+		}
+
+		const value = counts
+			.map((a, b) => {
+				return a === 2 ? (b + 1) * 2 : 0;
+			})
+			.sort((a, b) => {
+				return b - a;
+			})
+			.shift();
+
+		return value as number;
 	}
 
 	static two_pair(d1: number, d2: number, d3: number, d4: number, d5: number): number {
@@ -146,3 +152,6 @@ export default class Yatzy {
 		else return 0;
 	}
 }
+
+
+
