@@ -77,9 +77,12 @@ describe('Sixes', () => {
 
 describe('One pair', () => {
 	it('scores the sum of the highest pair', () => {
-			const game = new Yatzy(6, 2, 2, 3, 3);
-			assert.strictEqual(6, game.score_pair());
-		
+		const game = new Yatzy(6, 2, 2, 3, 3);
+		assert.strictEqual(6, game.score_pair());
+	});
+	it('scores the sum of the highest pair', () => {
+		const game = new Yatzy(6, 2, 2, 2, 3);
+		assert.strictEqual(4, game.score_pair());
 	});
 });
 
