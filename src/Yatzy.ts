@@ -46,7 +46,11 @@ export default class Yatzy {
 		return value as number;
 	}
 
-	private findSameScoreReturnHighestValue(counts: number[], diceValue: number): number {
+	private findSameScoreReturnHighestValue(
+		counts: number[],
+		diceValue: number,
+		twoPairs?: boolean
+	): number {
 		return counts
 			.map((a, b) => {
 				return a === diceValue ? (b + 1) * diceValue : 0;
@@ -54,7 +58,8 @@ export default class Yatzy {
 			.sort((a, b) => {
 				return b - a;
 			})
-			.shift() as number;
+			.splice(0, twoPairs ? 0 : 1)
+			.reduce((a, b) => a + b) as number;
 	}
 
 	static two_pair(d1: number, d2: number, d3: number, d4: number, d5: number): number {
@@ -97,7 +102,6 @@ export default class Yatzy {
 		for (let i = 0; i < 6; i++) if (tallies[i] >= 4) return (i + 1) * 4;
 		return 0;
 	}
-
 
 	static smallStraight(d1: number, d2: number, d3: number, d4: number, d5: number): number {
 		var tallies;
