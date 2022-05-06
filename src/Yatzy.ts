@@ -41,25 +41,29 @@ export default class Yatzy {
 			counts[this.dice[i] - 1]++;
 		}
 
-		const value = this.findSameScoreReturnHighestValue(counts, 2);
-
+		const value = this.findSameScoreReturnHighestValue(counts, 2, false);
 		return value as number;
 	}
 
 	private findSameScoreReturnHighestValue(
 		counts: number[],
 		diceValue: number,
-		twoPairs?: boolean
+		twoPairs: boolean
 	): number {
+		const returnCounts = this.returnSortedSumOfSameDices(counts, diceValue);
+		return twoPairs
+			? (returnCounts.splice(0, 1).reduce((a, b) => a + b) as number)
+			: (returnCounts[0] as number);
+	}
+
+	private returnSortedSumOfSameDices(counts: number[], diceValue: number) {
 		return counts
 			.map((a, b) => {
-				return a === diceValue ? (b + 1) * diceValue : 0;
+				return a >= diceValue ? (b + 1) * diceValue : 0;
 			})
 			.sort((a, b) => {
 				return b - a;
-			})
-			.splice(0, twoPairs ? 0 : 1)
-			.reduce((a, b) => a + b) as number;
+			});
 	}
 
 	static two_pair(d1: number, d2: number, d3: number, d4: number, d5: number): number {
