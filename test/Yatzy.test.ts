@@ -91,9 +91,9 @@ describe('Two pair', () => {
 		const game = new Yatzy(6, 2, 2, 3, 3);
 		assert.strictEqual(10, game.two_pair());
 	});
-	it('scores the sum of  two pairs', () => {
+	it('edge case scores 0  the sum of  two pairs', () => {
 		const game = new Yatzy(6, 2, 0, 3, 3);
-		assert.strictEqual(10, game.two_pair());
+		assert.strictEqual(0, game.two_pair());
 	});
 });
 
