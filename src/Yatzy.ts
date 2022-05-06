@@ -36,13 +36,18 @@ export default class Yatzy {
 	}
 
 	score_pair(): number {
+		const counts: number[] = this.getSameDices();
+
+		const value = this.findSameScoreReturnHighestValue(counts, 2, false);
+		return value as number;
+	}
+
+	private getSameDices() {
 		const counts: number[] = [0, 0, 0, 0, 0, 0];
 		for (let i = 0; i < 5; i++) {
 			counts[this.dice[i] - 1]++;
 		}
-
-		const value = this.findSameScoreReturnHighestValue(counts, 2, false);
-		return value as number;
+		return counts;
 	}
 
 	private findSameScoreReturnHighestValue(
@@ -67,10 +72,8 @@ export default class Yatzy {
 	}
 
 	two_pair(): number {
-		const counts: number[] = [0, 0, 0, 0, 0, 0];
-	for (let i = 0; i < 5; i++) {
-		counts[this.dice[i] - 1]++;
-	}
+		const counts: number[] = this.getSameDices();
+
 		const value = this.findSameScoreReturnHighestValue(counts, 2, true);
 		return value as number;
 	}
