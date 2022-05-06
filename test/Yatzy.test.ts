@@ -89,7 +89,11 @@ describe('One pair', () => {
 describe('Two pair', () => {
 	it('scores the sum of  two pairs', () => {
 		const game = new Yatzy(6, 2, 2, 3, 3);
-		assert.strictEqual(6, game.two_pair());
+		assert.strictEqual(10, game.two_pair());
+	});
+	it('scores the sum of  two pairs', () => {
+		const game = new Yatzy(6, 2, 0, 3, 3);
+		assert.strictEqual(10, game.two_pair());
 	});
 });
 
