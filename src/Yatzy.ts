@@ -57,7 +57,7 @@ export default class Yatzy {
 	): number {
 		const returnCounts = this.returnSortedSumOfSameDices(counts, diceValue);
 		return twoPairs && returnCounts.length > 1
-			? (returnCounts.splice(0, 2).reduce((a, b) => a + b) as number)
+			? (returnCounts.splice(0, 2).reduce((a, b) => (a > 0 && b > 0 ? a + b : 0)) as number)
 			: twoPairs && returnCounts.length === 1
 			? 0
 			: (returnCounts[0] as number);
@@ -70,8 +70,7 @@ export default class Yatzy {
 			})
 			.sort((a, b) => {
 				return b - a;
-			})
-			.filter((a) => a !== 0);
+			});
 	}
 
 	two_pair(): number {
