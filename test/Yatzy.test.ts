@@ -198,14 +198,18 @@ describe(Yatzy.name, () => {
 	});
 
 	describe('Large straight', () => {
-		it('scores 20', () => {
+		it('should scores 20', () => {
 			const game = new Yatzy(2, 3, 4, 6, 5);
 			assert.strictEqual(20, game.largeStraight());
 		});
-			it('should score 0', () => {
-				const game = new Yatzy(1, 2, 3, 4, 5);
-				assert.strictEqual(0, game.largeStraight());
-			});
+		it('should score 0', () => {
+			const game = new Yatzy(1, 2, 3, 4, 5);
+			assert.strictEqual(0, game.largeStraight());
+		});
+		it('should scores 20', () => {
+			const game = new Yatzy(3, 2, 4, 6, 5);
+			assert.strictEqual(20, game.largeStraight());
+		});
 	});
 
 	describe('Full house', () => {
@@ -217,6 +221,14 @@ describe(Yatzy.name, () => {
 		it('scores the sum of the full house', () => {
 			const game = new Yatzy(1, 1, 1, 2, 2);
 			assert.strictEqual(25, game.fullHouse());
+		});
+		it('scores the sum of the full house', () => {
+			const game = new Yatzy(1, 5, 1, 2, 2);
+			assert.strictEqual(0, game.fullHouse());
+		});
+		it('scores the sum of the full house', () => {
+			const game = new Yatzy(1, 3, 1, 5, 2);
+			assert.strictEqual(0, game.fullHouse());
 		});
 	});
 });
