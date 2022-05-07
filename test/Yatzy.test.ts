@@ -141,8 +141,12 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(6, 2, 2, 3, 3);
 			assert.strictEqual(10, game.two_pair());
 		});
-		it('edge case scores 0  the sum of  two pairs', () => {
+		it('edge case one pair scores 0  the sum of  two pairs', () => {
 			const game = new Yatzy(6, 2, 0, 3, 3);
+			assert.strictEqual(0, game.two_pair());
+		});
+		it('scores zero- no pairs', () => {
+			const game = new Yatzy(6, 2, 4, 5, 3);
 			assert.strictEqual(0, game.two_pair());
 		});
 	});
