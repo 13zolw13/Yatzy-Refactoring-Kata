@@ -99,7 +99,7 @@ export default class Yatzy {
 	largeStraight(): number {
 		const patternLargeStraight = '23456';
 		const largeStraightReturnValue = this.dice.sort((a, b) => a - b).join('');
-		return largeStraightReturnValue === patternLargeStraight ? 20 : 1;
+		return largeStraightReturnValue === patternLargeStraight ? 20 : 0;
 	
 	}
 
