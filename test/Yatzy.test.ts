@@ -112,9 +112,8 @@ describe(Yatzy.name, () => {
 
 	describe('Small straight', () => {
 		it('scores 15', () => {
-			assert.strictEqual(15, Yatzy.smallStraight(1, 2, 3, 4, 5));
-			assert.strictEqual(15, Yatzy.smallStraight(2, 3, 4, 5, 1));
-			assert.strictEqual(0, Yatzy.smallStraight(1, 2, 2, 4, 5));
+			const game = new Yatzy(1, 2, 3, 4, 5);
+			assert.strictEqual(15, game.smallStraight());
 		});
 	});
 
