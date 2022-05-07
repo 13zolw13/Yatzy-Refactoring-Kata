@@ -14,10 +14,14 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(1, 1, 1, 1, 1);
 			assert.strictEqual(game.yatzy(), 50);
 		});
-			it('should return 0 - dices have different number', () => {
-				const game = new Yatzy(0, 1, 1, 1, 1);
-				assert.strictEqual(game.yatzy(), 0);
-			});
+		it('should scores 50, dices have different number', () => {
+			const game = new Yatzy(2, 2, 2, 2, 2);
+			assert.strictEqual(game.yatzy(), 50);
+		});
+		it('should return 0 - dices have different number', () => {
+			const game = new Yatzy(6, 1, 1, 1, 1);
+			assert.strictEqual(game.yatzy(), 0);
+		});
 	});
 
 	describe('Ones', () => {
