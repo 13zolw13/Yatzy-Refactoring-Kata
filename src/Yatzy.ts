@@ -97,11 +97,10 @@ export default class Yatzy {
 	}
 
 	largeStraight(): number {
-		// const patternLargeStraight = '23456';
+		const patternLargeStraight = '23456';
 		const largeStraightReturnValue = this.dice.sort((a, b) => a - b).join('');
-		console.log('largeStraightReturnValue', largeStraightReturnValue);
-		// return largeStraightReturnValue === patternLargeStraight ? 20 : 1
-		return 0;
+		return largeStraightReturnValue === patternLargeStraight ? 20 : 1;
+	
 	}
 
 	static fullHouse(d1: number, d2: number, d3: number, d4: number, d5: number): number {
