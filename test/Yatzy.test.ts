@@ -3,9 +3,13 @@ import Yatzy from '../src/Yatzy';
 
 describe(Yatzy.name, () => {
 	describe('Chance', () => {
-		it('scores sum of all dice', () => {
+		it('should scores sum of all dice', () => {
 			const game = new Yatzy(1, 2, 3, 4, 5);
 			assert.strictEqual(game.chance(), 15);
+		});
+		it('should scores sum of all dice', () => {
+			const game = new Yatzy(2, 2, 2, 2, 2);
+			assert.strictEqual(game.chance(), 10);
 		});
 	});
 
