@@ -111,6 +111,14 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(6, 6, 6, 6, 6);
 			assert.strictEqual(30, game.OnesTwosTreesFourthsFivesSixes('sixes'));
 		});
+			it('score the sum of sixes', () => {
+				const game = new Yatzy(1, 1, 1, 6, 1);
+				assert.strictEqual(6, game.OnesTwosTreesFourthsFivesSixes('sixes'));
+			});
+			it('score the sum of sixes', () => {
+				const game = new Yatzy(1, 1, 1, 1, 1);
+				assert.strictEqual(0, game.OnesTwosTreesFourthsFivesSixes('sixes'));
+			});
 	});
 
 	describe('One pair', () => {
