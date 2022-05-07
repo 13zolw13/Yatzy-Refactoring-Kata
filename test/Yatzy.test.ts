@@ -128,7 +128,7 @@ describe(Yatzy.name, () => {
 		});
 			it('should score 0', () => {
 				const game = new Yatzy(1, 2, 3, 4, 5);
-				assert.strictEqual(20, game.largeStraight());
+				assert.strictEqual(0, game.largeStraight());
 			});
 	});
 
