@@ -123,9 +123,8 @@ describe(Yatzy.name, () => {
 
 	describe('Large straight', () => {
 		it('scores 20', () => {
-			assert.strictEqual(20, Yatzy.largeStraight(6, 2, 3, 4, 5));
-			assert.strictEqual(20, Yatzy.largeStraight(2, 3, 4, 5, 6));
-			assert.strictEqual(0, Yatzy.largeStraight(1, 2, 2, 4, 5));
+			const game = new Yatzy(2, 3, 4, 6, 5);
+			assert.strictEqual(20, game.largeStraight());
 		});
 	});
 
