@@ -81,6 +81,14 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(4, 4, 4, 4, 5);
 			assert.strictEqual(16, game.OnesTwosTreesFourthsFivesSixes('fours'));
 		});
+		it('score the sum of 4s', () => {
+			const game = new Yatzy(3, 4, 4, 4, 5);
+			assert.strictEqual(12, game.OnesTwosTreesFourthsFivesSixes('fours'));
+		});
+		it('score the sum of 4s', () => {
+			const game = new Yatzy(3, 3, 3, 3, 5);
+			assert.strictEqual(0, game.OnesTwosTreesFourthsFivesSixes('fours'));
+		});
 	});
 
 	describe('Fives', () => {
@@ -89,7 +97,6 @@ describe(Yatzy.name, () => {
 			assert.strictEqual(25, game.OnesTwosTreesFourthsFivesSixes('fives'));
 		});
 	});
-
 	describe('Sixes', () => {
 		it('score the sum of sixes', () => {
 			const game = new Yatzy(6, 6, 6, 6, 6);
