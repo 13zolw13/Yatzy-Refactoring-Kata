@@ -156,6 +156,10 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(6, 2, 2, 2, 3);
 			assert.strictEqual(6, game.three_of_a_kind());
 		});
+		it('scores the 0, theres no three of the kind', () => {
+			const game = new Yatzy(6, 2, 2, 3, 3);
+			assert.strictEqual(0, game.three_of_a_kind());
+		});
 	});
 
 	describe('Four of a kind', () => {
