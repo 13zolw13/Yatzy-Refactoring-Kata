@@ -167,6 +167,15 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(6, 2, 2, 2, 2);
 			assert.strictEqual(8, game.four_of_a_kind());
 		});
+		it('scores the sum of the four of the kind', () => {
+			const game = new Yatzy(6, 3, 3, 3, 3);
+			assert.strictEqual(12, game.four_of_a_kind());
+		});
+		it('scores 0, there isn`t  four of the kind', () => {
+			const game = new Yatzy(6, 3, 2, 2, 2);
+			assert.strictEqual(0, game.four_of_a_kind());
+		});
+
 	});
 
 	describe('Small straight', () => {
