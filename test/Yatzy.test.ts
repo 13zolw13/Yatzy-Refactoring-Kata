@@ -134,8 +134,8 @@ describe(Yatzy.name, () => {
 
 	describe('Full house', () => {
 		it('scores the sum of the full house', () => {
-			assert.strictEqual(18, Yatzy.fullHouse(6, 2, 2, 2, 6));
-			assert.strictEqual(0, Yatzy.fullHouse(2, 3, 4, 5, 6));
+		const game = new Yatzy(2, 3, 4, 6, 5);
+		assert.strictEqual(0, game.fullHouse());
 		});
 	});
 });
