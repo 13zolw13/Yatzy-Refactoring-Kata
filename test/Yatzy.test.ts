@@ -96,7 +96,16 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(5, 5, 5, 5, 5);
 			assert.strictEqual(25, game.OnesTwosTreesFourthsFivesSixes('fives'));
 		});
+		it('score the sum of fives', () => {
+			const game = new Yatzy(3, 3, 3, 3, 5);
+			assert.strictEqual(5, game.OnesTwosTreesFourthsFivesSixes('fives'));
+		});
+		it('score the sum of fives', () => {
+			const game = new Yatzy(3, 3, 3, 3, 0);
+			assert.strictEqual(0, game.OnesTwosTreesFourthsFivesSixes('fives'));
+		});
 	});
+
 	describe('Sixes', () => {
 		it('score the sum of sixes', () => {
 			const game = new Yatzy(6, 6, 6, 6, 6);
