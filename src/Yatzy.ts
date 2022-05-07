@@ -57,7 +57,10 @@ export default class Yatzy {
 	): number {
 		const returnCounts = this.returnSortedSumOfSameDices(counts, diceValue);
 		return twoPairs && returnCounts.length > 1
-			? (returnCounts.splice(0, 2).reduce((a, b) => a + b) as number) : twoPairs && returnCounts.length === 1 ? 0 : returnCounts[0] as number;
+			? (returnCounts.splice(0, 2).reduce((a, b) => a + b) as number)
+			: twoPairs && returnCounts.length === 1
+			? 0
+			: (returnCounts[0] as number);
 	}
 
 	private returnSortedSumOfSameDices(counts: number[], diceValue: number) {
@@ -77,16 +80,9 @@ export default class Yatzy {
 		const value = this.findSameScoreReturnHighestValue(counts, 2, true);
 		return value as number;
 	}
-	static three_of_a_kind(d1: number, d2: number, d3: number, d4: number, d5: number): number {
-		var t;
-		t = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-		t[d1 - 1]++;
-		t[d2 - 1]++;
-		t[d3 - 1]++;
-		t[d4 - 1]++;
-		t[d5 - 1]++;
-		for (let i = 0; i < 6; i++) if (t[i] >= 3) return (i + 1) * 3;
-		return 0;
+	 three_of_a_kind(): number {
+		const counts: number[] = this.getSameDices();
+		return this.findSameScoreReturnHighestValue(counts, 3, false);
 	}
 
 	static four_of_a_kind(_1: number, _2: number, d3: number, d4: number, d5: number): number {
