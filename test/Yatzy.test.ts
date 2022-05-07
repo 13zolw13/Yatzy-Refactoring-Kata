@@ -115,6 +115,10 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(1, 2, 3, 4, 5);
 			assert.strictEqual(15, game.smallStraight());
 		});
+			it('edge case should return 0', () => {
+				const game = new Yatzy(2, 3, 4, 5, 6);
+				assert.strictEqual(0, game.smallStraight());
+			});
 	});
 
 	describe('Large straight', () => {
