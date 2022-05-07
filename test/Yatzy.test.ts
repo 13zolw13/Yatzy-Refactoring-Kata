@@ -68,6 +68,12 @@ describe(Yatzy.name, () => {
 
 			assert.strictEqual(9, game.OnesTwosTreesFourthsFivesSixes('threes'));
 		});
+		
+		it('score the sum of 3s', () => {
+			const game = new Yatzy(2, 2, 1, 4, 5);
+
+			assert.strictEqual(0, game.OnesTwosTreesFourthsFivesSixes('threes'));
+		});
 	});
 
 	describe('Fours', () => {
