@@ -37,7 +37,12 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(1, 1, 2, 2, 2);
 			assert.strictEqual(2, game.OnesTwosTreesFourthsFivesSixes('ones'));
 		});
+		it('score the sum of 1s, should return 0 ', () => {
+			const game = new Yatzy(2, 2, 2, 2, 2);
+			assert.strictEqual(0, game.OnesTwosTreesFourthsFivesSixes('ones'));
+		});
 	});
+	
 
 	describe('Twos', () => {
 		it('score the sum of 2s', () => {
