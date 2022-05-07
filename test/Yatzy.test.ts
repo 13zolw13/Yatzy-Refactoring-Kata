@@ -10,7 +10,7 @@ describe(Yatzy.name, () => {
 	});
 
 	describe('Yatzy', () => {
-		it('scores 50', () => {
+		it('should scores 50, dices have different number', () => {
 			const game = new Yatzy(1, 1, 1, 1, 1);
 			assert.strictEqual(game.yatzy(), 50);
 		});
