@@ -103,7 +103,13 @@ export default class Yatzy {
 
 	fullHouse(): number {
 		const counts: number[] = this.getSameDices();
-		const returnValue = counts.filter((a) => a !== 0 && (a === 2 || a === 3)).length === 2 ? 25 : 0;
+		const returnValue =
+			counts
+				.sort((a, b) => b - a)
+				.slice(0, 2)
+				.join('') === '32'
+				? 25
+				: 0;
 		return returnValue as number;
 	}
 }
