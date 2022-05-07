@@ -126,6 +126,10 @@ describe(Yatzy.name, () => {
 			const game = new Yatzy(2, 3, 4, 6, 5);
 			assert.strictEqual(20, game.largeStraight());
 		});
+			it('should score 0', () => {
+				const game = new Yatzy(1, 2, 3, 4, 5);
+				assert.strictEqual(20, game.largeStraight());
+			});
 	});
 
 	describe('Full house', () => {
