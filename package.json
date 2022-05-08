@@ -20,7 +20,8 @@
   "scripts": {
     "test": "mocha --require ts-node/register/transpile-only 'test/**/*.ts'",
     "watch": "mocha --require ts-node/register --watch --watch-files src, test/**/*.ts",
-    "forma": "eslint --fix src/**/*.ts test/**/*.ts"
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "npm run lint -- --fix"
   },
   "private": true
 }

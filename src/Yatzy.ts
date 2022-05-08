@@ -9,39 +9,6 @@ export default class Yatzy {
 		this.dice[4] = d5;
 	}
 
-	chance(): number {
-		return this.dice.reduce((a, b) => a + b, 0);
-	}
-
-	yatzy(): number {
-		return this.dice.every((d) => d === this.dice[0]) ? 50 : 0;
-	}
-
-	OnesTwosTreesFourthsFivesSixes(option: string): number {
-		return option === this.filterOptionsDice[0]
-			? this.SumOnesTwosTreesFourthsFivesSixes(1)
-			: option === this.filterOptionsDice[1]
-			? this.SumOnesTwosTreesFourthsFivesSixes(2)
-			: option === this.filterOptionsDice[2]
-			? this.SumOnesTwosTreesFourthsFivesSixes(3)
-			: option === this.filterOptionsDice[3]
-			? this.SumOnesTwosTreesFourthsFivesSixes(4)
-			: option === this.filterOptionsDice[4]
-			? this.SumOnesTwosTreesFourthsFivesSixes(5)
-			: this.SumOnesTwosTreesFourthsFivesSixes(6);
-	}
-
-	private SumOnesTwosTreesFourthsFivesSixes(pickedDice: number) {
-		return this.dice.filter((d) => d === pickedDice).reduce((a, b) => a + b, 0);
-	}
-
-	score_pair(): number {
-		const counts: number[] = this.getSameDices();
-
-		const value = this.findSameScoreReturnHighestValue(counts, 2, false);
-		return value as number;
-	}
-
 	private getSameDices() {
 		const counts: number[] = [0, 0, 0, 0, 0, 0];
 		for (let i = 0; i < 5; i++) {
@@ -71,6 +38,39 @@ export default class Yatzy {
 			.sort((a, b) => {
 				return b - a;
 			});
+	}
+
+	private SumOnesTwosTreesFourthsFivesSixes(pickedDice: number) {
+		return this.dice.filter((d) => d === pickedDice).reduce((a, b) => a + b, 0);
+	}
+
+	chance(): number {
+		return this.dice.reduce((a, b) => a + b, 0);
+	}
+
+	yatzy(): number {
+		return this.dice.every((d) => d === this.dice[0]) ? 50 : 0;
+	}
+
+	OnesTwosTreesFourthsFivesSixes(option: string): number {
+		return option === this.filterOptionsDice[0]
+			? this.SumOnesTwosTreesFourthsFivesSixes(1)
+			: option === this.filterOptionsDice[1]
+			? this.SumOnesTwosTreesFourthsFivesSixes(2)
+			: option === this.filterOptionsDice[2]
+			? this.SumOnesTwosTreesFourthsFivesSixes(3)
+			: option === this.filterOptionsDice[3]
+			? this.SumOnesTwosTreesFourthsFivesSixes(4)
+			: option === this.filterOptionsDice[4]
+			? this.SumOnesTwosTreesFourthsFivesSixes(5)
+			: this.SumOnesTwosTreesFourthsFivesSixes(6);
+	}
+
+	score_pair(): number {
+		const counts: number[] = this.getSameDices();
+
+		const value = this.findSameScoreReturnHighestValue(counts, 2, false);
+		return value as number;
 	}
 
 	two_pair(): number {
