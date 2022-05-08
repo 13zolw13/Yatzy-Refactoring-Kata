@@ -1,6 +1,8 @@
 export default class Yatzy {
 	dice: number[] = [];
 	private filterOptionsDice = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes'];
+	private straightString = { smallStraight: '12345', largeStraight: '23456' };
+
 	constructor(d1: number, d2: number, d3: number, d4: number, d5: number) {
 		this.dice[0] = d1;
 		this.dice[1] = d2;
@@ -90,15 +92,13 @@ export default class Yatzy {
 	}
 
 	smallStraight(): number {
-		const patternSmallStraight = '12345';
 		const smallStraightReturnValue = this.dice.sort((a, b) => a - b).join('');
-		return smallStraightReturnValue === patternSmallStraight ? 15 : 0;
+		return smallStraightReturnValue === this.straightString.smallStraight ? 15 : 0;
 	}
 
 	largeStraight(): number {
-		const patternLargeStraight = '23456';
 		const largeStraightReturnValue = this.dice.sort((a, b) => a - b).join('');
-		return largeStraightReturnValue === patternLargeStraight ? 20 : 0;
+		return largeStraightReturnValue === this.straightString.largeStraight ? 20 : 0;
 	}
 
 	fullHouse(): number {
