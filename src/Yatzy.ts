@@ -1,9 +1,16 @@
+type diceFaceValue = 1 | 2 | 3 | 4 | 5 | 6;
 export default class Yatzy {
-	dice: number[] = [];
+	dice: diceFaceValue[] = [];
 	private filterOptionsDice = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes'];
 	private straightString = { smallStraight: '12345', largeStraight: '23456' };
 
-	constructor(d1: number, d2: number, d3: number, d4: number, d5: number) {
+	constructor(
+		d1: diceFaceValue,
+		d2: diceFaceValue,
+		d3: diceFaceValue,
+		d4: diceFaceValue,
+		d5: diceFaceValue
+	) {
 		this.dice[0] = d1;
 		this.dice[1] = d2;
 		this.dice[2] = d3;
@@ -113,6 +120,3 @@ export default class Yatzy {
 		return returnValue as number;
 	}
 }
-
-
-

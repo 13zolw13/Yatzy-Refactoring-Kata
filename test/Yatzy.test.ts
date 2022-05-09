@@ -101,7 +101,7 @@ describe(Yatzy.name, () => {
 			assert.strictEqual(5, game.OnesTwosTreesFourthsFivesSixes('fives'));
 		});
 		it('score the sum of fives', () => {
-			const game = new Yatzy(3, 3, 3, 3, 0);
+			const game = new Yatzy(3, 3, 3, 3, 1);
 			assert.strictEqual(0, game.OnesTwosTreesFourthsFivesSixes('fives'));
 		});
 	});
@@ -142,7 +142,7 @@ describe(Yatzy.name, () => {
 			assert.strictEqual(10, game.two_pair());
 		});
 		it('edge case one pair scores 0  the sum of  two pairs', () => {
-			const game = new Yatzy(6, 2, 0, 3, 3);
+			const game = new Yatzy(6, 2, 1, 3, 3);
 			assert.strictEqual(0, game.two_pair());
 		});
 		it('scores zero- no pairs', () => {
