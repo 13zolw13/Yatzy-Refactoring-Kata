@@ -1,19 +1,26 @@
 import { YatzyRoll } from './YatzyRoll';
 
-export class GivenGame {
-	games: YatzyRoll[] = [];
-	round: YatzyRoll;
-	constructor(round: YatzyRoll) {
-		this.round = round;
+export class Round implements YatzyRoll {
+	score: number;
+	category: string;
+	constructor(score: number, category: string) {
+		this.score = score;
+		this.category = category;
 	}
+
+	
+}
+
+export class GivenGame extends Round {
+	games: YatzyRoll[] = [];
 
 	get getRounds(): YatzyRoll[] {
 		return this.games;
 	}
 
-	setRounds() {
-		return this.games.find((game) => game.category === this.round.category)
+	addRound(round: YatzyRoll) {
+		return this.games.find((game) => game.category === round.category)
 			? null
-			: this.games.push(this.round);
+			: this.games.push(round);
 	}
 }
