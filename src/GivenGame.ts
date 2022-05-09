@@ -23,7 +23,6 @@ export class GivenGame {
 	}
 
 	get totalRounds() {
-		console.log(this.games);
-		return this.games.length;
+		return this.games.reduce((a, b) => a + b.score, 0);
 	}
 }
