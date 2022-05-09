@@ -1,4 +1,5 @@
-type diceFaceValue = 1 | 2 | 3 | 4 | 5 | 6;
+import { diceFaceValue } from './diceFaceValue';
+
 export default class Yatzy {
 	dice: diceFaceValue[] = [];
 	private filterOptionsDice = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes'];
