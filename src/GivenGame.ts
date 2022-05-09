@@ -7,11 +7,9 @@ export class Round implements YatzyRoll {
 		this.score = score;
 		this.category = category;
 	}
-
-	
 }
 
-export class GivenGame extends Round {
+export class GivenGame {
 	games: YatzyRoll[] = [];
 
 	get getRounds(): YatzyRoll[] {
@@ -22,5 +20,10 @@ export class GivenGame extends Round {
 		return this.games.find((game) => game.category === round.category)
 			? null
 			: this.games.push(round);
+	}
+
+	get totalRounds() {
+		console.log(this.games);
+		return this.games.length;
 	}
 }
