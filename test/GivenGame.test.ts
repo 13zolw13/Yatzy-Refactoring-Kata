@@ -2,8 +2,8 @@ import assert from 'assert';
 import { GivenGame } from '../src/GivenGame';
 import Yatzy from '../src/Yatzy';
 
-describe('Name of the group', () => {
-	it('should ', () => {
+describe(GivenGame.name, () => {
+	it('should  add one game - cannot add second roll with the same category', () => {
 		const game = new Yatzy(1, 2, 3, 4, 5);
 		assert.strictEqual(4, game.OnesTwosTreesFourthsFivesSixes('fours'));
 		const gamePlayed = new GivenGame({
