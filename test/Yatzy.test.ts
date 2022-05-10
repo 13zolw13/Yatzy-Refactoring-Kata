@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/SameKind';
-import Yatzy, { Fives, Fours, Ones, Threes, Twos } from '../src/Yatzy';
+import Yatzy, { Fives, Fours, Ones, Sixes, Threes, Twos } from '../src/Yatzy';
 
 describe(Yatzy.name, () => {
 	describe('Chance', () => {
@@ -106,20 +106,20 @@ describe(Yatzy.name, () => {
 		});
 	});
 
-	// describe('Sixes', () => {
-	// 	it('score the sum of sixes', () => {
-	// 		const game = new Yatzy(6, 6, 6, 6, 6);
-	// 		assert.strictEqual(30, game.OnesTwosTreesFourthsFivesSixes('sixes'));
-	// 	});
-	// 	it('score the sum of sixes', () => {
-	// 		const game = new Yatzy(1, 1, 1, 6, 1);
-	// 		assert.strictEqual(6, game.OnesTwosTreesFourthsFivesSixes('sixes'));
-	// 	});
-	// 	it('score the sum of sixes', () => {
-	// 		const game = new Yatzy(1, 1, 1, 1, 1);
-	// 		assert.strictEqual(0, game.OnesTwosTreesFourthsFivesSixes('sixes'));
-	// 	});
-	// });
+	describe('Sixes', () => {
+		it('score the sum of sixes', () => {
+			const game = new Sixes(6, 6, 6, 6, 6);
+			assert.strictEqual(30, game.score());
+		});
+		it('score the sum of sixes', () => {
+			const game = new Sixes(1, 1, 1, 6, 1);
+			assert.strictEqual(6, game.score());
+		});
+		it('score the sum of sixes', () => {
+			const game = new Sixes(1, 1, 1, 1, 1);
+			assert.strictEqual(0, game.score());
+		});
+	});
 
 	describe('One pair', () => {
 		it('scores the sum of the highest pair', () => {
