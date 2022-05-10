@@ -127,3 +127,11 @@ export class TwoPair extends SameKind {
 		return value as number;
 	}
 }
+
+export class ThreeOfAKind extends SameKind {
+	public score(): number {
+		const counts: number[] = this.getSameDices();
+		const value = this.findSameScoreReturnHighestValue(counts, 3, false);
+		return value as number;
+	}
+}
