@@ -1,5 +1,6 @@
 import assert from 'assert';
-import Yatzy, { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/Yatzy';
+import { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/SameKind';
+import Yatzy from '../src/Yatzy';
 
 describe(Yatzy.name, () => {
 	describe('Chance', () => {
