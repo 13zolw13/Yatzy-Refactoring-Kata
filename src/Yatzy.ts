@@ -120,4 +120,10 @@ export class OnePair extends SameKind {
 	}
 }
 
-
+export class TwoPair extends SameKind {
+	public score(): number {
+		const counts: number[] = this.getSameDices();
+		const value = this.findSameScoreReturnHighestValue(counts, 2, true);
+		return value as number;
+	}
+}
