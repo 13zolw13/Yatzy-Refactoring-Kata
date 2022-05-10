@@ -55,3 +55,9 @@ export class Twos extends SameValue {
 		return this.SumOnesTwosTreesFourthsFivesSixes(2);
 	}
 }
+
+export class Threes extends SameValue {
+	score(): number {
+		return this.SumOnesTwosTreesFourthsFivesSixes(3);
+	}
+}

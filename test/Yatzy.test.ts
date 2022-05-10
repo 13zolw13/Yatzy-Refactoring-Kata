@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/SameKind';
-import Yatzy, { Ones, Twos } from '../src/Yatzy';
+import Yatzy, { Ones, Threes, Twos } from '../src/Yatzy';
 
 describe(Yatzy.name, () => {
 	describe('Chance', () => {
@@ -56,25 +56,25 @@ describe(Yatzy.name, () => {
 		});
 	});
 
-	// describe('Threes', () => {
-	// 	it('score the sum of 3s', () => {
-	// 		const game = new Yatzy(1, 2, 3, 4, 5);
+	describe('Threes', () => {
+		it('score the sum of 3s', () => {
+			const game = new Threes(1, 2, 3, 4, 5);
 
-	// 		assert.strictEqual(3, game.OnesTwosTreesFourthsFivesSixes('threes'));
-	// 	});
+			assert.strictEqual(3, game.score());
+		});
 
-	// 	it('score the sum of 3s', () => {
-	// 		const game = new Yatzy(3, 3, 3, 4, 5);
+		it('score the sum of 3s', () => {
+			const game = new Threes(3, 3, 3, 4, 5);
 
-	// 		assert.strictEqual(9, game.OnesTwosTreesFourthsFivesSixes('threes'));
-	// 	});
+			assert.strictEqual(9, game.score());
+		});
 
-	// 	it('score the sum of 3s', () => {
-	// 		const game = new Yatzy(2, 2, 1, 4, 5);
+		it('score the sum of 3s', () => {
+			const game = new Threes(2, 2, 1, 4, 5);
 
-	// 		assert.strictEqual(0, game.OnesTwosTreesFourthsFivesSixes('threes'));
-	// 	});
-	// });
+			assert.strictEqual(0, game.score());
+		});
+	});
 
 	// describe('Fours', () => {
 	// 	it('score the sum of 4s', () => {
