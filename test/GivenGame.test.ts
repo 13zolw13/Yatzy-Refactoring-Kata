@@ -41,4 +41,19 @@ describe(GivenGame.name, () => {
 		assert.strictEqual(2, givenGame.getRounds.length);
 		assert.strictEqual(10, givenGame.totalRounds);
 	});
+
+	
+	it('should  return one less category to play', () => {
+		const game = new Yatzy(1, 2, 3, 4, 5);
+		assert.strictEqual(4, game.OnesTwosTreesFourthsFivesSixes('fours'));
+		const givenGame = new GivenGame();
+		const secondRound = new Round(4, 'fours');
+
+		const newGiven = givenGame.given(secondRound);
+		assert.strictEqual(1, givenGame.getRounds.length);
+		assert.strictEqual(4, givenGame.getRounds[0].score);
+		assert.strictEqual('fours', givenGame.getRounds[0].category);
+		assert.strictEqual(12, newGiven.length);
+	});
+
 });
