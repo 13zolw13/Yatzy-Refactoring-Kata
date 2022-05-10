@@ -1,5 +1,5 @@
 import assert from 'assert';
-import Yatzy, { OnePair, ThreeOfAKind, TwoPair } from '../src/Yatzy';
+import Yatzy, { FourOfAKind, OnePair, ThreeOfAKind, TwoPair } from '../src/Yatzy';
 
 describe(Yatzy.name, () => {
 	describe('Chance', () => {
@@ -161,20 +161,20 @@ describe(Yatzy.name, () => {
 		});
 	});
 
-	// describe('Four of a kind', () => {
-	// 	it('scores the sum of the four of the kind', () => {
-	// 		const game = new Yatzy(6, 2, 2, 2, 2);
-	// 		assert.strictEqual(8, game.four_of_a_kind());
-	// 	});
-	// 	it('scores the sum of the four of the kind', () => {
-	// 		const game = new Yatzy(6, 3, 3, 3, 3);
-	// 		assert.strictEqual(12, game.four_of_a_kind());
-	// 	});
-	// 	it('scores 0, there isn`t  four of the kind', () => {
-	// 		const game = new Yatzy(6, 3, 2, 2, 2);
-	// 		assert.strictEqual(0, game.four_of_a_kind());
-	// 	});
-	// });
+	describe('Four of a kind', () => {
+		it('scores the sum of the four of the kind', () => {
+			const game = new FourOfAKind(6, 2, 2, 2, 2);
+			assert.strictEqual(8, game.score());
+		});
+		it('scores the sum of the four of the kind', () => {
+			const game = new FourOfAKind(6, 3, 3, 3, 3);
+			assert.strictEqual(12, game.score());
+		});
+		it('scores 0, there isn`t  four of the kind', () => {
+			const game = new FourOfAKind(6, 3, 2, 2, 2);
+			assert.strictEqual(0, game.score());
+		});
+	});
 
 	describe('Small straight', () => {
 		it('scores 15', () => {

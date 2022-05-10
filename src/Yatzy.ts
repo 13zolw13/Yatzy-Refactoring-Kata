@@ -135,3 +135,11 @@ export class ThreeOfAKind extends SameKind {
 		return value as number;
 	}
 }
+
+export class FourOfAKind extends SameKind {
+	public score(): number {
+		const counts: number[] = this.getSameDices();
+		const value = this.findSameScoreReturnHighestValue(counts, 4, false);
+		return value as number;
+	}
+} 
