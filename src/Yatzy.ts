@@ -4,37 +4,6 @@ export default class Yatzy extends YatzyThrow {
 	private filterOptionsDice = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes'];
 	private straightString = { smallStraight: '12345', largeStraight: '23456' };
 
-	private getSameDices() {
-		const counts: number[] = [0, 0, 0, 0, 0, 0];
-		for (let i = 0; i < 5; i++) {
-			counts[this.dice[i] - 1]++;
-		}
-		return counts;
-	}
-
-	private findSameScoreReturnHighestValue(
-		counts: number[],
-		diceValue: number,
-		twoPairs: boolean
-	): number {
-		const returnCounts = this.returnSortedSumOfSameDices(counts, diceValue);
-		return twoPairs && returnCounts.length > 1
-			? (returnCounts.splice(0, 2).reduce((a, b) => (a > 0 && b > 0 ? a + b : 0)) as number)
-			: twoPairs && returnCounts.length === 1
-			? 0
-			: (returnCounts[0] as number);
-	}
-
-	private returnSortedSumOfSameDices(counts: number[], diceValue: number) {
-		return counts
-			.map((a, b) => {
-				return a >= diceValue ? (b + 1) * diceValue : 0;
-			})
-			.sort((a, b) => {
-				return b - a;
-			});
-	}
-
 	private SumOnesTwosTreesFourthsFivesSixes(pickedDice: number) {
 		return this.dice.filter((d) => d === pickedDice).reduce((a, b) => a + b, 0);
 	}
@@ -61,28 +30,30 @@ export default class Yatzy extends YatzyThrow {
 			: this.SumOnesTwosTreesFourthsFivesSixes(6);
 	}
 
-	score_pair(): number {
-		const counts: number[] = this.getSameDices();
+	// score_pair(): number {
+	// 	// 	// 	const counts: number[] = this.getSameDices();
 
-		const value = this.findSameScoreReturnHighestValue(counts, 2, false);
-		return value as number;
-	}
+	// 	// 	// 	const value = this.findSameScoreReturnHighestValue(counts, 2, false);
+	// 	// 	// 	return value as number;
+	// 	const value = OnePair.score();
+	// 	return value;
+	// }
 
-	two_pair(): number {
-		const counts: number[] = this.getSameDices();
+	// two_pair(): number {
+	// 	const counts: number[] = this.getSameDices();
 
-		const value = this.findSameScoreReturnHighestValue(counts, 2, true);
-		return value as number;
-	}
-	three_of_a_kind(): number {
-		const counts: number[] = this.getSameDices();
-		return this.findSameScoreReturnHighestValue(counts, 3, false);
-	}
+	// 	const value = this.findSameScoreReturnHighestValue(counts, 2, true);
+	// 	return value as number;
+	// }
+	// three_of_a_kind(): number {
+	// 	const counts: number[] = this.getSameDices();
+	// 	return this.findSameScoreReturnHighestValue(counts, 3, false);
+	// }
 
-	four_of_a_kind(): number {
-		const counts: number[] = this.getSameDices();
-		return this.findSameScoreReturnHighestValue(counts, 4, false);
-	}
+	// four_of_a_kind(): number {
+	// 	const counts: number[] = this.getSameDices();
+	// 	return this.findSameScoreReturnHighestValue(counts, 4, false);
+	// }
 
 	smallStraight(): number {
 		const smallStraightReturnValue = this.dice.sort((a, b) => a - b).join('');
@@ -94,15 +65,59 @@ export default class Yatzy extends YatzyThrow {
 		return largeStraightReturnValue === this.straightString.largeStraight ? 20 : 0;
 	}
 
-	fullHouse(): number {
+	// fullHouse(): number {
+	// 	const counts: number[] = this.getSameDices();
+	// 	const returnValue =
+	// 		counts
+	// 			.sort((a, b) => b - a)
+	// 			.slice(0, 2)
+	// 			.join('') === '32'
+	// 			? 25
+	// 			: 0;
+	// 	return returnValue as number;
+	// }
+}
+
+export abstract class SameKind extends YatzyThrow {
+	protected findSameScoreReturnHighestValue(
+		counts: number[],
+		diceValue: number,
+		twoPairs: boolean
+	): number {
+		const returnCounts = this.returnSortedSumOfSameDices(counts, diceValue);
+		return twoPairs && returnCounts.length > 1
+			? (returnCounts.splice(0, 2).reduce((a, b) => (a > 0 && b > 0 ? a + b : 0)) as number)
+			: twoPairs && returnCounts.length === 1
+			? 0
+			: (returnCounts[0] as number);
+	}
+
+	protected getSameDices() {
+		const counts: number[] = [0, 0, 0, 0, 0, 0];
+		for (let i = 0; i < 5; i++) {
+			counts[this.dice[i] - 1]++;
+		}
+		return counts;
+	}
+
+	protected returnSortedSumOfSameDices(counts: number[], diceValue: number) {
+		return counts
+			.map((a, b) => {
+				return a >= diceValue ? (b + 1) * diceValue : 0;
+			})
+			.sort((a, b) => {
+				return b - a;
+			});
+	}
+	abstract score(): number;
+}
+
+export class OnePair extends SameKind {
+	public score(): number {
 		const counts: number[] = this.getSameDices();
-		const returnValue =
-			counts
-				.sort((a, b) => b - a)
-				.slice(0, 2)
-				.join('') === '32'
-				? 25
-				: 0;
-		return returnValue as number;
+		const value = this.findSameScoreReturnHighestValue(counts, 2, false);
+		return value as number;
 	}
 }
+
+
