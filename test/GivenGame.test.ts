@@ -1,5 +1,6 @@
 import assert from 'assert';
-import { GivenGame, Round } from '../src/GivenGame';
+import { GivenGame } from '../src/GivenGame';
+import { Round } from '../src/Round';
 import Yatzy from '../src/Yatzy';
 
 describe(GivenGame.name, () => {
