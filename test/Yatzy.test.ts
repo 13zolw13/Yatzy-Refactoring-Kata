@@ -1,5 +1,5 @@
 import assert from 'assert';
-import Yatzy, { FourOfAKind, OnePair, ThreeOfAKind, TwoPair } from '../src/Yatzy';
+import Yatzy, { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/Yatzy';
 
 describe(Yatzy.name, () => {
 	describe('Chance', () => {
@@ -210,22 +210,22 @@ describe(Yatzy.name, () => {
 		});
 	});
 
-	// describe('Full house', () => {
-	// 	it('scores 0 not the full house', () => {
-	// 		const game = new Yatzy(2, 3, 4, 6, 5);
-	// 		assert.strictEqual(0, game.fullHouse());
-	// 	});
-	// 	it('scores the sum of the full house', () => {
-	// 		const game = new Yatzy(1, 1, 1, 2, 2);
-	// 		assert.strictEqual(25, game.fullHouse());
-	// 	});
-	// 	it('scores the sum of the full house', () => {
-	// 		const game = new Yatzy(1, 5, 1, 2, 2);
-	// 		assert.strictEqual(0, game.fullHouse());
-	// 	});
-	// 	it('scores the sum of the full house', () => {
-	// 		const game = new Yatzy(1, 3, 1, 5, 2);
-	// 		assert.strictEqual(0, game.fullHouse());
-	// 	});
-	// });
+	describe('Full house', () => {
+		it('scores 0 not the full house', () => {
+			const game = new FullHouse(2, 3, 4, 6, 5);
+			assert.strictEqual(0, game.score());
+		});
+		it('scores the sum of the full house', () => {
+			const game = new FullHouse(1, 1, 1, 2, 2);
+			assert.strictEqual(25, game.score());
+		});
+		it('scores the sum of the full house', () => {
+			const game = new FullHouse(1, 5, 1, 2, 2);
+			assert.strictEqual(0, game.score());
+		});
+		it('scores the sum of the full house', () => {
+			const game = new FullHouse(1, 3, 1, 5, 2);
+			assert.strictEqual(0, game.score());
+		});
+	});
 });

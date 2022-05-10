@@ -143,3 +143,17 @@ export class FourOfAKind extends SameKind {
 		return value as number;
 	}
 } 
+
+export class FullHouse extends SameKind {
+	public score(): number {
+		const counts: number[] = this.getSameDices();
+		const returnValue =
+			counts
+				.sort((a, b) => b - a)
+				.slice(0, 2)
+				.join('') === '32'
+				? 25
+				: 0;
+		return returnValue as number;
+	}
+}
