@@ -1,17 +1,17 @@
 import assert from 'assert';
 import { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/SameKind';
 import { Fives, Fours, Ones, Sixes, Threes, Twos } from '../src/SameValue';
-import Yatzy from '../src/Yatzy';
+import Yatzy, { Chance } from '../src/Yatzy';
 
 describe(Yatzy.name, () => {
 	describe('Chance', () => {
 		it('should scores sum of all dice', () => {
-			const game = new Yatzy(1, 2, 3, 4, 5);
-			assert.strictEqual(game.chance(), 15);
+			const game = new Chance(1, 2, 3, 4, 5);
+			assert.strictEqual(game.score(), 15);
 		});
 		it('should scores sum of all dice', () => {
-			const game = new Yatzy(2, 2, 2, 2, 2);
-			assert.strictEqual(game.chance(), 10);
+			const game = new Chance(2, 2, 2, 2, 2);
+			assert.strictEqual(game.score(), 10);
 		});
 	});
 
