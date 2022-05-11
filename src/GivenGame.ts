@@ -38,4 +38,7 @@ export class GivenGame {
 		this.categories = categoryNotYetPlayed;
 		return this.categories;
 	}
+	score() {
+		return this.totalRounds;
+	}
 }
