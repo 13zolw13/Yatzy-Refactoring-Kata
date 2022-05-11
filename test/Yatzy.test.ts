@@ -2,10 +2,10 @@ import assert from 'assert';
 import { Chance } from '../src/Chance';
 import { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/SameKind';
 import { Fives, Fours, Ones, Sixes, Threes, Twos } from '../src/SameValue';
-import Yatzy, { SmallStraight } from '../src/Yatzy';
+import { LargeStraight, SmallStraight } from '../src/Yatzy';
 import { YatzyCategory } from '../src/YatzyCategory';
 
-describe(Yatzy.name, () => {
+describe(LargeStraight.name, () => {
 	describe('Chance', () => {
 		it('should scores sum of all dice', () => {
 			const game = new Chance(1, 2, 3, 4, 5);
@@ -201,16 +201,16 @@ describe(Yatzy.name, () => {
 
 	describe('Large straight', () => {
 		it('should scores 20', () => {
-			const game = new Yatzy(2, 3, 4, 6, 5);
-			assert.strictEqual(20, game.largeStraight());
+			const game = new LargeStraight(2, 3, 4, 6, 5);
+			assert.strictEqual(20, game.score());
 		});
 		it('should score 0', () => {
-			const game = new Yatzy(1, 2, 3, 4, 5);
-			assert.strictEqual(0, game.largeStraight());
+			const game = new LargeStraight(1, 2, 3, 4, 5);
+			assert.strictEqual(0, game.score());
 		});
 		it('should scores 20', () => {
-			const game = new Yatzy(3, 2, 4, 6, 5);
-			assert.strictEqual(20, game.largeStraight());
+			const game = new LargeStraight(3, 2, 4, 6, 5);
+			assert.strictEqual(20, game.score());
 		});
 	});
 
