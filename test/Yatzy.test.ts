@@ -1,7 +1,9 @@
 import assert from 'assert';
+import { Chance } from '../src/Chance';
 import { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/SameKind';
 import { Fives, Fours, Ones, Sixes, Threes, Twos } from '../src/SameValue';
-import Yatzy, { Chance } from '../src/Yatzy';
+import Yatzy from '../src/Yatzy';
+import { YatzyCategory } from "../src/YatzyCategory";
 
 describe(Yatzy.name, () => {
 	describe('Chance', () => {
@@ -17,16 +19,16 @@ describe(Yatzy.name, () => {
 
 	describe('Yatzy', () => {
 		it('should scores 50, dices have different number', () => {
-			const game = new Yatzy(1, 1, 1, 1, 1);
-			assert.strictEqual(game.yatzy(), 50);
+			const game = new YatzyCategory(1, 1, 1, 1, 1);
+			assert.strictEqual(game.score(), 50);
 		});
 		it('should scores 50, dices have different number', () => {
-			const game = new Yatzy(2, 2, 2, 2, 2);
-			assert.strictEqual(game.yatzy(), 50);
+			const game = new YatzyCategory(2, 2, 2, 2, 2);
+			assert.strictEqual(game.score(), 50);
 		});
 		it('should return 0 - dices have different number', () => {
-			const game = new Yatzy(6, 1, 1, 1, 1);
-			assert.strictEqual(game.yatzy(), 0);
+			const game = new YatzyCategory(6, 1, 1, 1, 1);
+			assert.strictEqual(game.score(), 0);
 		});
 	});
 
