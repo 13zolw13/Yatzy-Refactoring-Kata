@@ -1,8 +1,9 @@
 import assert from 'assert';
 import { Chance } from '../src/Chance';
+import { LargeStraight } from '../src/LargeStraight';
 import { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/SameKind';
 import { Fives, Fours, Ones, Sixes, Threes, Twos } from '../src/SameValue';
-import { LargeStraight, SmallStraight } from '../src/Yatzy';
+import { SmallStraight } from '../src/SmallStraight';
 import { YatzyCategory } from '../src/YatzyCategory';
 
 describe(LargeStraight.name, () => {
