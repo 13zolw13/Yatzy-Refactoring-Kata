@@ -2,8 +2,8 @@ import assert from 'assert';
 import { Chance } from '../src/Chance';
 import { FourOfAKind, FullHouse, OnePair, ThreeOfAKind, TwoPair } from '../src/SameKind';
 import { Fives, Fours, Ones, Sixes, Threes, Twos } from '../src/SameValue';
-import Yatzy from '../src/Yatzy';
-import { YatzyCategory } from "../src/YatzyCategory";
+import Yatzy, { SmallStraight } from '../src/Yatzy';
+import { YatzyCategory } from '../src/YatzyCategory';
 
 describe(Yatzy.name, () => {
 	describe('Chance', () => {
@@ -182,20 +182,20 @@ describe(Yatzy.name, () => {
 
 	describe('Small straight', () => {
 		it('scores 15', () => {
-			const game = new Yatzy(1, 2, 3, 4, 5);
-			assert.strictEqual(15, game.smallStraight());
+			const game = new SmallStraight(1, 2, 3, 4, 5);
+			assert.strictEqual(15, game.score());
 		});
 		it('edge case should return 0', () => {
-			const game = new Yatzy(2, 3, 4, 5, 6);
-			assert.strictEqual(0, game.smallStraight());
+			const game = new SmallStraight(2, 3, 4, 5, 6);
+			assert.strictEqual(0, game.score());
 		});
 		it('edge case should return 0', () => {
-			const game = new Yatzy(2, 3, 4, 1, 6);
-			assert.strictEqual(0, game.smallStraight());
+			const game = new SmallStraight(2, 3, 4, 1, 6);
+			assert.strictEqual(0, game.score());
 		});
 		it('edge case should return 0', () => {
-			const game = new Yatzy(2, 3, 4, 1, 5);
-			assert.strictEqual(15, game.smallStraight());
+			const game = new SmallStraight(2, 3, 4, 1, 5);
+			assert.strictEqual(15, game.score());
 		});
 	});
 
